@@ -1,0 +1,83 @@
+section.solutions-hero {
+  @extend %hero;
+
+  div.container {
+    @include _px(
+      height 560px auto,
+      min-height 560px auto
+    );
+
+
+    div.bg-int-ornament-1 {
+      display: block;
+      background-color: $remesh-blue-transparent;
+      position: absolute;
+      width: 15000px;
+      left: px2vw(-48px);
+      top: 0px;
+      bottom: 0px;
+
+      @include until-phablet() {
+        display: none;
+      }
+    }
+
+    div.bg-ornament-1 {
+      @include until-phablet() {
+        display: block;
+        background-color: $remesh-blue-transparent;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+      }
+    }
+
+    div.interior {
+      div.info {
+        @include _px(margin-top 107px 30px);
+        h1 {
+          color: black;
+        }
+
+        p {
+          color: black;
+        }
+      }
+
+      div.other {
+        @include _px(margin-top 42px 0px);
+      }
+
+      div.arrow {
+        display: block;
+
+        @include _px(
+          left 270px -30px,
+          top auto 215px,
+          bottom -320px auto,
+          width 190px,
+          height 382px
+        );
+
+        background-image: url(../img/arrow-solutions-hero.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        @include until-phablet() {
+          transform: scale(0.6) translateX(0) rotateZ(-50deg);
+        }
+
+        @include mq($until: mobile-next) {
+          top: 320px;
+        }
+
+        @include mq($from: mobile-next, $until: iphone-x-next) {
+          top: 290px;
+        }
+      }
+    }
+  }
+}

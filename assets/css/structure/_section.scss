@@ -1,0 +1,44 @@
+section {
+  display: flex;
+  justify-content: center;
+  z-index: $z-section;
+  margin: 0;
+  padding: 0;
+
+  div.container {
+    margin: 0;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex: 1;
+    width: 100%;
+
+    div.interior {
+      position: relative;
+      display: flex;
+      flex: 1;
+
+      @include _px(
+        max-width 1140px 296px, min-width 1140px 296px, width 1140px 296px
+      );
+    }
+  }
+}
+
+
+@import "sections/info";
+@import "sections/stacked-panel";
+@import "sections/hero";
+@import "sections/information-panel";
+@import "sections/multi-page-panel";
+@import "sections/testimonial";
+@import "sections/tables";
+@import "sections/video";
+@import "sections/multi-button-panel";
+@import "sections/steps-panel";
+@import "sections/demo-form-panel";
+@import "sections/comparison-grid";
+@import "sections/stats-panel";
+@import "sections/bios-list";
+
+@import "sections/backgrounds";

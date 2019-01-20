@@ -1,0 +1,109 @@
+section.demo-hero {
+  @extend %hero;
+
+  div.container {
+    @include _px(
+        height 560px auto,
+        min-height 560px auto
+    );
+
+    div.bg-ornament-1 {
+      display: block;
+      background-color: $remesh-light-yellow;
+      position: absolute;
+
+      @include _px(
+        left 0px,
+        right 102px 0px,
+        top 0px,
+        bottom 0px -80px
+      );
+    }
+
+    div.interior {
+      div.info {
+        @include _px(
+          width 60%,
+          max-width 60%,
+          margin-top 107px 30px
+        );
+
+        h1 {
+          color: black;
+        }
+
+        p {
+          color: black;
+          @include _px(
+            width 48% 60%,
+            max-width 48% 60%,
+            padding-right 100px 0px
+          );
+        }
+      }
+
+      div.other {
+        z-index: 1;
+
+        @include _px(
+          position absolute relative,
+          bottom -352px auto,
+          left 24% auto,
+          top auto -60px,
+          right auto -160px,
+          width 382px 194px,
+          height 382px 194px
+        );
+
+        @include until-phablet() {
+          min-height: mobile-px2vw(194px);
+          max-height: mobile-px2vw(194px);
+
+          & > img {
+            margin: 0;
+            transform: none;
+            width: mobile-px2vw(194px);
+            height: mobile-px2vw(194px);
+          }
+        }
+      }
+
+      div.arrow {
+        display: block;
+
+        left: 50%;
+        bottom: px2vw(85px);
+
+        width: px2vw(392px);
+        height: px2vw(126px);
+        background-image: url(../img/arrow-blue.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        transform: translateX(-45%) rotateZ(4deg);
+      }
+
+      form.hs-form, form.demo-form {
+        position: absolute;
+        @include _px(
+          right 0px auto,
+          left auto 50%,
+          top 50px auto,
+          bottom auto 0px,
+          width 412px 75%
+        );
+
+        @supports (display:grid) {
+          @include _px(
+              width 365px 75%
+          );
+        }
+
+        @include until-phablet() {
+          z-index: 2;
+          transform: translate(-50%, mobile-px2vw(240px));
+        }
+      }
+    }
+  }
+}

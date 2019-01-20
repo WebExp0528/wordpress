@@ -1,0 +1,58 @@
+html {
+  box-size: border-box;
+  margin-top: 0 !important;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  z-index: 0;
+  //height: 100%;
+
+  font-size: px2vw($base-font-size);
+  overflow-x: hidden;
+
+  @include mq($from: design) {
+    font-size: $base-font-size;
+  }
+
+  @include mq($until: iphone-xs) {
+    font-size: $mobile-font-size;
+  }
+
+  @include mq($from: iphone-xs, $until: phablet-next) {
+    font-size: $phablet-font-size;
+  }
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  display: block;
+  width: 100%;
+  position: relative;
+  background-color: white;
+  z-index: 0;
+  overflow-x: hidden;
+}
+
+html.no-scroll {
+  overflow: hidden;
+
+  body {
+    overflow: hidden;
+
+    main {
+      overflow: hidden;
+    }
+  }
+}

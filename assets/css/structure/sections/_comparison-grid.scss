@@ -1,0 +1,90 @@
+.comparison-grid {
+  @extend %info;
+
+  @include _px(margin-top 340px 60px);
+
+  &.previous-multi-page-stacked {
+    @include until-phablet() {
+      margin-top: mobile-px2vw(120px);
+    }
+  }
+
+  div.container {
+    div.interior {
+      position: relative;
+      flex-direction: column;
+
+      div.bg-int-ornament-1 {
+        z-index: 0;
+        display:block;
+        position: absolute;
+        background-color: $remesh-light-yellow;
+        
+        @include _px(
+          right -44px -100px,
+          width 15000px auto,
+          left auto -100px,
+          top 67px 39px,
+          bottom -80px -40px
+        );
+      }
+
+      div.header {
+        @include _px(margin-left 244px 0px);
+        z-index: 1;
+      }
+
+      table {
+        @include _px(margin-left 244px 0px, width auto 100%);
+        z-index: 1;
+        tr {
+          @include _px(height 70px 30px);
+
+          th, td {
+            @include _rem(21px, 13px);
+            font-weight: bold;
+          }
+
+          th.col-0 {
+            @include _px(width 306px auto);
+            text-align: left;
+          }
+
+          th.col-1 {
+            @include _px(width 166px 60px);
+            text-align: left;
+          }
+
+          th.col-2 {
+            @include _px(width 166px 60px);
+            text-align: left;
+          }
+
+          th.col-3 {
+            @include _px(width 166px 60px);
+            text-align: left;
+          }
+
+
+          th.col-1, td.col-1, th.col-2, td.col-2, th.col-3, td.col-3 {
+            text-align: center;
+            vertical-align: middle;
+
+            svg {
+              @include _px(
+                padding 0,
+                padding-top 4px,
+                width 31px 16px,
+                height 29px (16px * (29px / 31px))
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include until-phablet() {
+    @include info-mobile();
+  }
+}

@@ -1,0 +1,55 @@
+.info-image {
+  @extend %info;
+
+  @include _px(
+    margin-top 116px 34px
+  );
+
+  div.container {
+    div.interior {
+      @include _px(
+        padding-top 100px
+      );
+
+      div.info {
+        order: 1;
+        @include _px(
+          margin-top 80px,
+          margin-right 0px,
+          margin-bottom 0px,
+          margin-left 0px,
+          width 384px !important,
+          max-width 384px !important,
+          padding-top 78px
+        );
+
+        p {
+          color: $remesh-text-gray;
+          line-height: 1.5 !important;
+        }
+      }
+
+      div.other {
+        order: 0;
+
+        @include _px(
+          padding-top 78px,
+          margin-right 48px
+        );
+      }
+    }
+  }
+
+  @include until-phablet() {
+
+    @include info-mobile;
+
+    div.container {
+      div.interior {
+        div.other {
+          padding-bottom: mobile-px2vw(20px);
+        }
+      }
+    }
+  }
+}

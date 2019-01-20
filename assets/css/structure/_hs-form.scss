@@ -1,0 +1,108 @@
+section.demo-hero, section.demo-form-panel {
+  form.hs-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: $remesh-blue;
+    
+    @include _px(
+      padding-top 52px 30px,
+      padding-right 48px 20px,
+      padding-bottom 52px 30px,
+      padding-left 48px 20px
+    );
+
+    label {
+      display: none;
+    }
+
+    ul.hs-error-msgs {
+      display: block;
+      background: rgba($remesh-orange, 0.75);
+      padding: 10px;
+      border: 1px solid darken($remesh-orange, 15%);
+      border-radius: 8px;
+
+      li {
+        display: block;
+        color: white;
+        label {
+          display: block;
+          @include _rem(12px);
+        }
+      }
+    }
+
+    fieldset {
+      //display: flex;
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+
+
+      @include _px(margin-bottom 10px);
+
+      & > div {
+        flex: 1;
+
+        div.input {
+          margin: 0 !important;
+          flex: 1;
+
+          input, textarea {
+            box-sizing: border-box;
+            width: 100% !important;
+            font-family: $base-font-family;
+            @include _rem(14px, 14px);
+            @include _px(
+              padding-top 14px 5px,
+              padding-right 13px 7px,
+              padding-bottom 14px 5px,
+              padding-left 13px 7px
+            );
+
+            border: 0px none;
+            background-color: $remesh-blue-light;
+            border-radius: 8px;
+            color: white;
+            &::placeholder {
+              color: #C2D1D9;
+            }
+          }
+
+          textarea {
+            @include _px(height 119px 50px);
+          }
+        }
+      }
+
+      &.form-columns-2 {
+        & > div {
+          width: calc(50% - 10px);
+          &:last-of-type {
+            width: 50%;
+            float:right;
+          }
+        }
+
+        @include until-phablet() {
+          display: flex;
+          flex-direction: column;
+
+          div.field {
+            width: 100%;
+            float: none;
+
+            &:first-of-type {
+              margin-bottom: mobile-px2vw(10px);
+            }
+          }
+        }
+      }
+    }
+
+    .hs_submit {
+      margin-bottom: 0;
+    }
+  }
+}
