@@ -1,0 +1,142 @@
+.bios-list {
+  @extend %info;
+
+  margin-top: px2vw(320px);
+
+  div.container {
+    div.interior {
+      flex-direction: column;
+
+      div.bg-int-ornament-1 {
+        display: block;
+        position: absolute;
+        
+        @include _px(
+          left -1024px,
+          right -1024px,
+          bottom 175px 110px,
+          top 85px 50px
+        );
+
+        background: $remesh-lightgray;
+      }
+
+      div.info {
+        z-index: 1;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        align-items: flex-end;
+
+        div.header {
+          span.sub-header, h2 {
+            text-align: right;
+          }
+        }
+      }
+
+      div.bios {
+        width: 100%;
+        max-width: 100%;
+        z-index: 1;
+        @include _px(margin-top 100px 30px);
+
+        div.squiggle {
+          display: none;
+
+          @include _px(
+            width 247px,
+            height 246px
+          );
+
+          svg {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        span.name {
+          text-align: center;
+          @include _rem(21px, 15px);
+          font-weight: bold;
+        }
+
+        span.title {
+          text-align: center;
+          @include _rem(21px, 15px);
+          color: $remesh-text-gray;
+        }
+
+        div.founders, div.employees {
+          width: 100%;
+          max-width: 100%;
+          ul {
+            width: 100%;
+            max-width: 100%;
+            @include _px(
+              padding-top 0px,
+              padding-right 75px 0px,
+              padding-bottom 0px,
+              padding-left 75px 0px,
+              grid-column-gap 110px 30px,
+              grid-row-gap 94px 60px
+            );
+
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+              position: relative;
+
+              padding: 0;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              box-sizing: border-box;
+
+              @include _px(
+                  width 25% 50%,
+                  max-width 25% 50%,
+                  min-width 25% 50%,
+                  padding-left 25px 15px,
+                  padding-right 25px 15px,
+                  margin-bottom 40px 20px
+              );
+
+              div.bio-list-image {
+                box-sizing: border-box;
+                margin: 0; padding: 0;
+                width: 100%;
+                @include _px(margin-bottom 32px 16px);
+                height: auto;
+
+                div.squiggle {
+                  display: block;
+                  position: absolute;
+                  left: 50%;
+                  top: 0;
+                  transform: translateX(-50%) scale(1.1);
+                }
+
+                img {
+                  margin: 0; padding: 0;
+                  width: 100%;
+                  height: auto;
+                  border-radius: 100%;
+                }
+              }
+            }
+          }
+        }
+
+        div.founders {
+          ul {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+section.home-hero {
+  @extend %hero;
+
+  background: $remesh-blue;
+
+  div.container {
+    div.bg-ornament-1 {
+      display: block;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      @include _px(height 192px);
+      width: 40%;
+      background-image: url(../img/orn-home-hero.svg);
+      background-position: right top;
+      background-size: cover;
+      @include until-phablet() {
+        display: none;
+      }
+    }
+
+    div.info {
+      div.buttons {
+
+        form {
+          position:relative;
+          margin: 0;
+          padding: 0;
+          display: flex;
+
+          @include _px(
+            flex-direction row column,
+            align-items center flex-start,
+            width 375px 100%,
+            max-width 375px 100%,
+            margin-bottom 15px
+          );
+
+          label {
+            display: none;
+          }
+
+          .hs-error-msgs {
+            position: absolute;
+            background-color: white;
+
+            @include _px(
+                            top -30px,
+                            left -25px,
+                            padding-top 10px,
+                            padding-right 15px,
+                            padding-bottom 10px,
+                            padding-left 15px
+            );
+            transform: translate(0%, -100%);
+            border-radius: 5px;
+            border: 2px solid $remesh-lightgray;
+
+            &:after, &:before {
+              top: 100%;
+              left: 50%;
+              border: solid transparent;
+              content: " ";
+              height: 0;
+              width: 0;
+              position: absolute;
+              pointer-events: none;
+            }
+
+            &:after {
+              border-color: rgba(255, 255, 255, 0);
+              border-top-color: #FFFFFF;
+              border-width: 8px;
+              margin-left: -8px;
+            }
+
+            &:before {
+              border-color: rgba(230, 231, 232, 0);
+              border-top-color: #E6E7E8;
+              border-width: 11px;
+              margin-left: -11px;
+            }
+
+            display: flex;
+            li {
+              display: block;
+            }
+
+            label {
+              display: block;
+            }
+
+
+          }
+
+          &:after {
+            position: absolute;
+            content: ' ';
+            background-image: url(../img/icon-mail.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include _px(
+                            left 10px,
+                            width 22px,
+                            height 18px,
+                            top 50% 7px
+            );
+
+            @include _transform(translateY -50% 0);
+          }
+
+          & > div.field:first-of-type {
+            flex: 1;
+            & > div {
+              @include _px(margin-right 5px 0px);
+
+              input[type=email] {
+                box-sizing: border-box;
+                font-family: $base-font-family;
+                position: relative;
+                flex: 1;
+                width: 100%;
+
+                padding-top:7px;
+                padding-right:6px;
+                padding-bottom:7px;
+
+                @include _rem(16px, 16px);
+
+                @include _px(
+                  padding-left 40px,
+                  margin-bottom 0px 10px
+                );
+
+                border: 0px solid $remesh-lightgray;
+                border-radius: 6px;
+              }
+            }
+          }
+
+          input[type=submit] {
+            box-sizing: border-box;
+            background-color: $remesh-orange;
+            border: 2px solid $remesh-orange;
+          }
+        }
+
+        a {
+          @include _px(max-width 170px 150px !important);
+        }
+
+        a.button-white {
+          &:hover {
+            background-color: $remesh-orange;
+            border-color: $remesh-orange;
+            color: white;
+          }
+        }
+
+        a.button-secondary {
+          &:hover {
+            border-color: white;
+            color: white;
+          }
+        }
+      }
+    }
+
+    div.arrow {
+      display: block;
+
+      @include _px(
+        left 50% -120px,
+        top auto 425px,
+        bottom 85px auto,
+        width 392px 392px,
+        height 126px 126px
+      );
+
+      background-image: url(../img/arrow-aqua.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transform: translateX(-50%) rotateZ(4deg);
+      @include until-phablet() {
+        transform: scale(0.6) translateX(0) rotateZ(45deg);
+      }
+
+      @include mq($until: mobile-next) {
+        top: 520px;
+      }
+      @include mq($from: mobile-next, $until: iphone-x-next) {
+        top: 500px;
+      }
+    }
+  }
+}

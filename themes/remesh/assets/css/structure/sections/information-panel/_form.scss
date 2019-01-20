@@ -1,0 +1,69 @@
+.info-form {
+  margin-top: px2vw(240px);
+  div.container {
+    div.interior {
+      div.bg-int-ornament-1 {
+        z-index: 0;
+        display: block;
+        position: absolute;
+        left: 0px; top:0px; width: 15500px; bottom: 0px;
+        background-color: $remesh-lightgray;
+      }
+
+      div.info {
+
+        z-index: 1;
+        padding-top: px2vw(72px);
+        padding-left: px2vw(90px);
+        padding-bottom: px2vw(72px);
+
+        width: 100%;
+
+        h2 {
+          max-width: px2vw(580px);
+          font-size: _rem(40px);
+        }
+
+        div.buttons {
+          display: none;
+        }
+
+        form {
+          display: flex;
+          margin-bottom: px2vw(30px);
+
+          input[type=text], input[type=email] {
+            flex: 1;
+            font-family: $base-font-family;
+            position: relative;
+            flex: 1;
+            margin-right: 5px;
+            border: 2px solid $remesh-lightgray;
+            border-radius: 6px;
+            padding: 5px 10px;
+          }
+
+          input[type=submit] {
+            background-color: $remesh-aqua;
+            border-color: $remesh-aqua;
+
+            &:hover {
+              color: $remesh-aqua;
+              background-color: white;
+              border-color: white;
+            }
+          }
+        }
+
+        a {
+          color: $remesh-aqua;
+          font-weight: bold;
+        }
+      }
+
+      div.buttons-m {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+$circular-image-scale: 0.9;
+
+@keyframes circular-image-scale {
+  0% {
+    transform: scale($circular-image-scale);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.info-circular-image {
+  @extend %info;
+
+  @include _px(margin-top 155px 56px);
+
+  div.container {
+    @include _px(padding-top 120px 0px);
+
+    div.interior  {
+      div.info {
+        order: 1;
+        justify-content: center;
+
+        p {
+          @include _rem(16px, 14px);
+          color: $remesh-text-gray;
+          line-height: 1.5 !important;
+        }
+      }
+
+      div.other {
+        order: 0;
+        animation-fill-mode: forwards;
+        opacity: 0;
+
+        @include _px(
+          height 583px,
+          width 583px,
+          max-width 583px,
+          margin-right 64px
+        );
+
+        & > img {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  &.info-left {
+    div.container {
+      div.interior {
+        div.info {
+          order: 0;
+          @include _px(margin-right 64px 0px);
+        }
+
+        div.other {
+          order: 1;
+
+          @include _px(margin-right 0px);
+        }
+      }
+    }
+  }
+
+  &.transition--in {
+    div.container {
+      div.interior {
+        div.other {
+          animation-name: fade-in, circular-image-scale;
+          animation-duration: $transition-duration;
+
+          @for $i from 1 through 10 {
+            &[data-transition-index='#{$i}'] {
+              animation-delay: ($transition-delay * ($i - 1));
+              div.icon {
+                animation-delay: ($transition-delay * ($i - 1));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include until-phablet() {
+    @include info-mobile;
+
+    div.container {
+      div.interior {
+        div.other {
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          min-width: 100%;
+          height: mobile-px2vw(252px);
+
+          & > img {
+            width: mobile-px2vw(252px);
+            height: mobile-px2vw(252px);
+          }
+        }
+      }
+    }
+  }
+}

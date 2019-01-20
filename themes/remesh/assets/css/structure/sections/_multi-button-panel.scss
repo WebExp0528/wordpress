@@ -1,0 +1,166 @@
+@keyframes multi-button-rotate-in {
+  0% {
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.multi-button-simple {
+  @include _px(margin-top 120px 60px);
+
+  div.container {
+    div.interior {
+      flex-direction: column;
+      div.header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include _px(margin-bottom 20px);
+
+        h2 {
+          text-align: center;
+        }
+
+        p {
+          @include _px(max-width 586px 250px);
+          @include _rem(16px, 12px);
+          text-align: center;
+          color: $remesh-gray;
+        }
+      }
+
+      div.buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        perspective: 100vw;
+
+        div.button {
+          animation-fill-mode: forwards;
+          opacity: 0;
+          transform-style: preserve-3d;
+          backface-visibility: hidden;
+
+
+          box-sizing: border-box;
+          @include _px(width 33% 50%, padding 15px 5px);
+
+          a {
+            display: flex;
+            flex-direction: column;
+            background: $remesh-blue-light;
+            color: white;
+            justify-content: center;
+            transition: background-color 0.2s linear;
+
+            @include _px(
+              border-radius 7px,
+              height 213px 190px,
+              padding-top  0px,
+              padding-right  44px 10px,
+              padding-bottom  0px,
+              padding-left  44px 10px
+            );
+
+            text-decoration: none;
+            font-weight: bold;
+            background-image: url(../img/ui-next-white.svg);
+            background-position: bottom px2vw(20px) right px2vw(20px);
+            background-repeat: no-repeat;
+
+            &:hover {
+              background-color: $remesh-blue;
+              background-image: url(../img/ui-next-hover.svg);
+            }
+
+            @include from-desktop() {
+              background-position: bottom 20px right 20px;
+            }
+
+            @include until-phablet() {
+              justify-content: flex-start;
+              background-position: bottom mobile-px2vw(8px) right mobile-px2vw(8px);
+              padding-top: mobile-px2vw(20px);
+            }
+
+            h3 {
+              @include _rem(21px, 14px);
+            }
+
+            p {
+              @include _rem(16px, 12px);
+              font-weight: normal;
+            }
+
+            img {
+              @include _px(
+                margin-left -11px -5px,
+                width 75px 30px
+              );
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.transition--in {
+    div.container {
+      div.interior {
+        div.buttons-container {
+          div.button {
+            animation-name: fade-in, multi-button-rotate-in;
+            animation-duration: $transition-duration;
+
+            @for $i from 1 through 10 {
+              &[data-transition-index='#{$i}'] {
+                animation-delay: ($transition-delay * ($i - 1));
+                div.icon {
+                  animation-delay: ($transition-delay * ($i - 1));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mq($from: design) {
+    margin-top: 120px;
+
+    div.container {
+      div.interior {
+        div.header {
+          margin-bottom: 20px;
+
+          p {
+            max-width: 586px;
+          }
+        }
+
+        div.buttons-container {
+          div.button {
+            padding: 15px;
+
+            a {
+              border-radius: 7px;
+              height: 213px;
+              padding: 0px 44px;
+              background-position: bottom 20px right 20px;
+
+              img {
+                margin-left: -11px;
+                width: 75px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

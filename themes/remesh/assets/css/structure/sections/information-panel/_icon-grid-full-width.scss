@@ -1,0 +1,173 @@
+.info-icon-grid-full-width {
+  @extend %info;
+
+  @include _px(margin-top 130px);
+
+  &.previous-stats-panel {
+    @include _px(margin-top 230px 90px);
+  }
+
+  div.container {
+    align-items: center;
+
+    div.interior {
+      display: block;
+      flex-direction: column;
+
+      div.info {
+        //justify-content: center;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      div.other {
+        flex: 1;
+        display: flex;
+        //justify-content: center;
+
+
+        div.grid {
+          z-index: 1;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          div.grid-row {
+            display: flex;
+            flex: 1;
+
+            @include _px(
+                min-height 300px auto
+            );
+
+            @supports (display:grid) {
+              @include _px(
+                  min-height auto auto
+              );
+            }
+
+            &:nth-child(odd) {
+              @include _transform(translateX 50px 15px);
+              @include _px(margin-bottom 30px 20px);
+            }
+
+            &:nth-child(even) {
+              @include _transform(translateX -50px -15px);
+            }
+
+            a {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-decoration: none;
+              color: black;
+              font-weight: bold;
+              @include _rem(21px);
+              line-height: 1.5;
+              animation-fill-mode: forwards;
+              opacity: 0;
+
+              @include _px(
+                min-height 300px auto
+              );
+
+              @supports (display:grid) {
+                @include _px(
+                    min-height auto auto
+                );
+              }
+
+              div.icon {
+                position: relative;
+                animation-fill-mode: forwards;
+
+                @include _px(
+                  width 200px 40px,
+                  height 200px 40px
+                );
+
+                div.icon-image {
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  @include _px(
+                    width (145px * (170px / 98px))  (50px * (170px / 98px)),
+                    height (152px * (170px / 98px)) (54px * (170px / 98px))
+                  );
+                  transform: translate(-50%, -50%);
+                  background-size: contain;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                }
+              }
+
+              & > div {
+                @include _px(margin-top 22px);
+                text-align: center;
+
+                span.arrow {
+                  position: relative;
+                  display: inline-block;
+                  @include _px(
+                    margin-left 3px,
+                    width 18px,
+                    height 17px
+                  );
+
+                  &:after {
+                    position: absolute;
+
+                    @include _px(
+                      left 0px,
+                      top 2px,
+                      right 0px,
+                      bottom -2px
+                    );
+
+                    content: ' ';
+                    background: url(../img/icon-next-arrow.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  &.transition--in {
+    div.container {
+      div.other {
+        div.grid {
+          div.grid-row {
+            a {
+              animation-name: fade-in;
+              animation-duration: $transition-duration;
+
+              @for $i from 1 through 10 {
+                &[data-transition-index='#{$i}'] {
+                  animation-delay: ($transition-delay * ($i - 1));
+                  div.icon {
+                    animation-delay: ($transition-delay * ($i - 1));
+                  }
+                }
+              }
+
+              div.icon {
+                animation-name: icon-scale-in;
+                animation-duration: $transition-duration;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "_from": "sass-mq@^5.0.0",
+  "_id": "sass-mq@5.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-GCN6wGY+l4n10mASeMe2vqISvEEFjv6/NVcywaMU9saZgzw+DKM+fUUAnv07LlxXvDdnHSRf5jGJ10u/iF1BKA==",
+  "_location": "/sass-mq",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "sass-mq@^5.0.0",
+    "name": "sass-mq",
+    "escapedName": "sass-mq",
+    "rawSpec": "^5.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^5.0.0"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/sass-mq/-/sass-mq-5.0.0.tgz",
+  "_shasum": "7e8a8eb0f289591b3521549266f0ff923772809d",
+  "_spec": "sass-mq@^5.0.0",
+  "_where": "/Users/jong/Projects/Assembly/Remesh/Prototype/assets",
+  "bugs": {
+    "url": "https://github.com/sass-mq/sass-mq/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Guardian Media Group and Contributors."
+    }
+  ],
+  "deprecated": false,
+  "description": "mq() is a Sass mixin that helps manipulating media queries in an elegant way.",
+  "devDependencies": {
+    "eyeglass": "^1.5.0",
+    "node-sass": "^4.9.0",
+    "sassdoc": "^2.5.0"
+  },
+  "eyeglass": {
+    "needs": ">= 0.8.2",
+    "sassDir": "./_mq.scss",
+    "exports": false
+  },
+  "files": [
+    "_mq.scss",
+    "LICENSE.md",
+    "README.md",
+    "sass/index.scss"
+  ],
+  "homepage": "https://sass-mq.github.io/sass-mq/",
+  "ignore": [
+    "test",
+    "sassdoc",
+    "**/.*",
+    "sache.json",
+    "bower.json",
+    "sassdoc.sh",
+    "scripts"
+  ],
+  "keywords": [
+    "responsive",
+    "sass",
+    "rwd",
+    "mediaquery",
+    "query",
+    "queries",
+    "media",
+    "eyeglass-module"
+  ],
+  "license": "MIT",
+  "main": "_mq.scss",
+  "name": "sass-mq",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sass-mq/sass-mq.git"
+  },
+  "scripts": {
+    "sassdoc": "./scripts/sassdoc.sh",
+    "test": "./scripts/test.sh"
+  },
+  "version": "5.0.0"
+}

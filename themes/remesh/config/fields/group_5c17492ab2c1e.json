@@ -1,0 +1,103 @@
+{
+    "key": "group_5c17492ab2c1e",
+    "title": "Arrow Properties",
+    "fields": [
+        {
+            "key": "field_5c17493a4b501",
+            "label": "Arrow Template",
+            "name": "arrow_template",
+            "type": "select",
+            "instructions": "The type of arrow to display.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "No Arrow",
+                "home-hero": "Home - Hero",
+                "home-product": "Home - The Product",
+                "home-solution": "Home - Solutions",
+                "home-about": "Home - About",
+                "home-hiw": "Home - How Remesh Works",
+                "home-casestudies": "Home - Case Studies",
+                "product-hero": "Product - Hero",
+                "product-insights": "Product - Scalable Qualitative Insights",
+                "product-service": "Product - AI. At Your Service",
+                "product-experience": "Product - The Experience",
+                "solutions-hero": "Solutions - Hero",
+                "solutions-reward": "Solutions - Rewarding for Moderators and Participants",
+                "solutions-feedback": "Solutions - Better Feedback",
+                "solutions-timing": "Solutions - Better Timing",
+                "about-hero": "About - Hero",
+                "about-started": "About - Where It All Started",
+                "about-careers": "About - Careers",
+                "about-press": "About - Press",
+                "about-team": "About - Who We Are",
+                "request-hiw": "Request Demo - How Remesh Works",
+                "request-step-by-step": "Request Demo - Step by Step",
+                "request-findings": "Request Demo - Quick Time Findings",
+                "request-worlds": "Request Demo - The Best of Two Worlds"
+            },
+            "default_value": [
+                "none"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5c1749564b502",
+            "label": "Arrow Color",
+            "name": "arrow_color",
+            "type": "select",
+            "instructions": "The color of the arrow.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "aqua": "Aqua",
+                "yellow": "Yellow",
+                "red": "Red",
+                "blue": "Blue"
+            },
+            "default_value": [
+                "default"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1545410596
+}

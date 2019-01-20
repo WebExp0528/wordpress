@@ -1,0 +1,160 @@
+
+
+.info-table-horizontal-cell {
+  @extend %stacked-panel;
+
+  @include _px(margin-top 260px 90px);
+
+  div.container {
+
+    div.interior {
+
+      div.header {
+        h2 {
+          em {
+            &:after {
+              background-image: url(../img/misc-underline-long.svg);
+
+              @include _px(
+                bottom -6px -12px,
+                height 16px
+              );
+            }
+          }
+        }
+      }
+
+      div.table {
+        ul {
+          li {
+            flex-direction: row;
+            opacity: 0;
+            animation-fill-mode: forwards;
+
+            @supports(display: grid) {
+              display: grid;
+              grid-template-columns: px2vw(207px) 1fr;
+              column-gap: 0;
+              grid-gap: 0;
+
+              @include from-desktop() {
+                grid-template-columns: 207px 1fr;
+              }
+
+              @include until-phablet() {
+                grid-template-columns: mobile-px2vw(126px) mobile-px2vw(170px);
+              }
+            }
+
+            & > img {
+              width: auto;
+              @include _px(height 320px);
+            }
+
+            & > div {
+              background-color: $remesh-blue;
+              justify-content: center;
+              color: white;
+              flex: 1;
+              h4 {
+                font-weight: 500;
+                color: white;
+                @include _rem(24px, 18px);
+              }
+
+              p {
+                color: white;
+                @include _rem(18px, 14px);
+              }
+
+              a {
+                color: white;
+                font-weight: bold;
+                @include _rem(17px, 16px);
+
+
+                &:hover {
+                  color: rgba(white, 0.5);
+                }
+              }
+            }
+
+
+
+            div.image {
+              background-size: cover;
+              background-position: center;
+              padding: 0;
+
+              height: 100%;
+
+              @include _px(
+                width 207px 126px,
+                min-width 207px 126px,
+                max-width 207px 126px
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  &.transition--in {
+    div.container {
+      div.interior {
+        div.table {
+          ul {
+            li {
+              animation-name: fade-in, stacked-slide-in;
+              animation-duration: $transition-duration;
+
+              @for $i from 1 through 10 {
+                &[data-transition-index='#{$i}'] {
+                  animation-delay: ($transition-delay * ($i - 1));
+                  div.icon {
+                    animation-delay: ($transition-delay * ($i - 1));
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include until-phablet() {
+    div.container {
+      div.interior {
+        div.header {
+          h2 {
+            br {
+              display: none;
+            }
+          }
+        }
+
+        div.table {
+          overflow-x: scroll;
+          -webkit-overflow-scrolling: touch;
+          margin-left: mobile-px2vw(-40px);
+          padding-left:mobile-px2vw(40px);
+          margin-right: mobile-px2vw(-40px);
+          padding-bottom: mobile-px2vw(30px);
+
+
+          ul {
+            li {
+              &:last-of-type {
+                padding-right: mobile-px2vw(40px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

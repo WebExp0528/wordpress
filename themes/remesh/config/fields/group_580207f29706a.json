@@ -1,0 +1,478 @@
+{
+    "key": "group_580207f29706a",
+    "title": "Link Content Type",
+    "fields": [
+        {
+            "key": "field_5802080a2bd04",
+            "label": "Link Type",
+            "name": "link_type",
+            "type": "select",
+            "instructions": "The type of link.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "external": "External URL",
+                "page": "Page",
+                "post": "Post",
+                "file": "File",
+                "relative": "Relative URL",
+                "video": "Video Pop-up"
+            },
+            "default_value": [
+                "none"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_580208722bd06",
+            "label": "Link Title",
+            "name": "link_title",
+            "type": "text",
+            "instructions": "The title of the link.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Title",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5802084c2bd05",
+            "label": "URL",
+            "name": "link_url",
+            "type": "url",
+            "instructions": "The external URL to link to, must be a fully qualified URL.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "==",
+                        "value": "external"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "URL"
+        },
+        {
+            "key": "field_580208952bd07",
+            "label": "Page",
+            "name": "link_page_link",
+            "type": "post_object",
+            "instructions": "The WordPress page to link to.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "==",
+                        "value": "page"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_580208c42bd08",
+            "label": "Post",
+            "name": "link_post_link",
+            "type": "post_object",
+            "instructions": "The post object to link to.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "==",
+                        "value": "post"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_58022d4288b1c",
+            "label": "File",
+            "name": "link_file_link",
+            "type": "file",
+            "instructions": "Link to the file object.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "==",
+                        "value": "file"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_580208db2bd09",
+            "label": "Relative URL",
+            "name": "link_relative_url",
+            "type": "text",
+            "instructions": "The relative URL to link to.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "==",
+                        "value": "relative"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Relative URL",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c2721dba3eb5",
+            "label": "Video Embed",
+            "name": "video_embed",
+            "type": "oembed",
+            "instructions": "The embed to use for the video popup",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_580209012bd0a",
+            "label": "Link Anchor",
+            "name": "link_anchor",
+            "type": "text",
+            "instructions": "The optional #anchor to append to the URL.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    },
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "#anchor",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5802269b7c461",
+            "label": "Open In New Window",
+            "name": "link_new_window",
+            "type": "true_false",
+            "instructions": "Open the link in a new browser window.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    },
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_580209562bd0b",
+            "label": "CSS Class",
+            "name": "link_css_class",
+            "type": "text",
+            "instructions": "Any additional CSS classes to add to the anchor tag.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "CSS class",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_58022c9c9ab8f",
+            "label": "Show Advanced Settings",
+            "name": "link_show_advanced_settings",
+            "type": "true_false",
+            "instructions": "Show advanced link settings.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_58022b934d88f",
+            "label": "Link ID",
+            "name": "link_id",
+            "type": "text",
+            "instructions": "The ID attribute for the link.  Optional.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    },
+                    {
+                        "field": "field_58022c9c9ab8f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_580225457c460",
+            "label": "Relationship",
+            "name": "link_relationship",
+            "type": "select",
+            "instructions": "The relationship for the link.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    },
+                    {
+                        "field": "field_58022c9c9ab8f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "nofollow": "No Follow",
+                "noreferrer": "No Referrer",
+                "noopener": "No Opener",
+                "dns-prefetch": "DNS Prefetch",
+                "preconnect": "Preconnect",
+                "prerender": "Prerender",
+                "alternate": "Alternate",
+                "external": "External",
+                "index": "Index",
+                "first": "First",
+                "last": "Last",
+                "next": "Next",
+                "prev": "Previous",
+                "help": "Help",
+                "search": "Search"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5802270b7c462",
+            "label": "Download File Name",
+            "name": "link_download_file_name",
+            "type": "text",
+            "instructions": "If this link is to a download, the name of the file for the download.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5802080a2bd04",
+                        "operator": "!=",
+                        "value": "none"
+                    },
+                    {
+                        "field": "field_58022c9c9ab8f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Download file name",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "Content type definition for links",
+    "modified": 1546068479
+}

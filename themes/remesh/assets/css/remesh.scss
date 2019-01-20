@@ -1,0 +1,28 @@
+$mq-responsive: true;
+$mq-breakpoints: (
+        mobile:  320px,
+        mobile-next:  321px,
+        iphone-x: 375px,
+        iphone-x-next: 376px,
+        iphone-xs: 415px,
+        phablet: 576px,
+        phablet-next: 577px,
+        tablet:  740px,
+        tablet-wide:  860px,
+        desktop: 980px,
+        nav-break: 1290px,
+        design: 1440px
+);
+
+$debug-breakpoints: true;
+
+// https://github.com/sass-mq/sass-mq
+@import "sass-mq/mq";
+@import "~normalize-scss/sass/normalize";
+
+@include normalize();
+
+@import "bourbon/bourbon";
+@import "base/base";
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+@import "structure/structure";

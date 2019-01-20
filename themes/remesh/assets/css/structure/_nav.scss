@@ -1,0 +1,494 @@
+$header-transition-speed: 0.25s;
+
+header {
+  z-index: $z-header;
+
+  position: fixed;
+
+  left: 0px; top: 0px;
+  max-width: 100%;
+  width: 100%;
+  height: 100px;
+
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform $header-transition-speed ease-out, background-color $header-transition-speed ease-out;
+
+  div.interior {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    //flex: 1 0 0%;
+    @include _px(max-width 1140px 296px, min-width 1140px 296px);
+    height: 50px;
+
+    svg {
+      @include _px(width 135px 93px);
+      min-width: 110px;
+      height: auto;
+
+      #logo-remesh {
+
+        #remesh {
+          path {
+            fill: black;
+            transition: fill $header-transition-speed ease-out;
+          }
+        }
+
+        #primary-dot {
+          fill: $remesh-blue;
+          transition: fill $header-transition-speed ease-out;
+        }
+
+        #dot-1 {
+          fill: #000;
+          opacity: 0.145098039;
+          transition: fill $header-transition-speed ease-out;
+        }
+
+
+        #dot-2 {
+          fill: #000;
+          opacity: 0.145098039;
+          transition: fill $header-transition-speed ease-out;
+        }
+      }
+    }
+
+    nav {
+      position: relative;
+      flex: 1 0 0%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      & > ul {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > li {
+          position: relative;
+          display: block;
+          @include _px(margin-right 24px);
+
+          &:last-of-type {
+            @include _px(margin-right 0px);
+          }
+
+          & > a {
+            transition: color $header-transition-speed ease-out;
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            white-space: nowrap;
+
+            &.current {
+              color: $remesh-blue;
+            }
+
+            &:hover {
+              color: $remesh-blue;
+            }
+
+            &.demo {
+              color: white;
+              background: $remesh-orange;
+              padding: 6px 12px;
+              border-radius: 6px;
+              border: 1px solid $remesh-orange;
+
+              &:hover {
+                background-color: white;
+                color: $remesh-orange;
+              }
+            }
+          }
+
+          div.sub-menu {
+            position: absolute;
+
+            @include _px(
+              left 0px,
+              top 24px,
+              padding-top 16px,
+              min-width 238px
+            );
+
+            display: block;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease-out;
+
+            &.visible {
+              opacity: 1;
+              pointer-events: all;
+            }
+
+            & > ul {
+              position: relative;
+              margin: 0;
+
+              @include _px(
+                  padding-top 17px,
+                  padding-right 21px,
+                  padding-bottom 17px,
+                  padding-left 21px
+              );
+
+              display: flex;
+              flex-direction: column;
+              background-color: white;
+              color: black;
+              box-shadow: 0 15px 15px 0px rgba(0,0,0,0.156862745);
+
+              &:before {
+                position: absolute;
+
+                @include _px(
+                    top -8px,
+                    left 20px,
+                    border-top-width 0px,
+                    border-right-width 6.5px,
+                    border-bottom-width 9px,
+                    border-left-width 6.5px
+                );
+
+                content: ' ';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-color: transparent transparent #ffffff transparent;
+              }
+
+              & > li {
+                display: block;
+                padding: 0;
+
+                @include _px(margin-bottom 16px);
+
+                &:last-of-type {
+                  @include _px(margin-bottom 0px);
+                }
+
+                a {
+                  display: flex;
+                  align-items: center;
+                  font-weight: bold;
+                  color: black;
+                  text-decoration: none;
+                  &:hover {
+                    & > div {
+                      span {
+                        color: $remesh-blue;
+                      }
+
+                      p {
+                        color: $remesh-blue-light;
+                      }
+                    }
+                  }
+
+                  div.icon {
+                    position: relative;
+                    width: px2vw(21px);
+                    height: px2vw(21px);
+                    margin-right: px2vw(15px);
+
+                    div.icon-image {
+                      position: absolute;
+                      left: 50%;
+                      top: 50%;
+                      width: px2vw(145px * (21px / 98px));
+                      height: px2vw(152px * (21px / 98px));
+                      transform: translate(-50%, -50%);
+                      background-size: contain;
+                      background-position: center;
+                      background-repeat: no-repeat;
+                    }
+                  }
+
+                  & > div {
+                    display: block;
+                    margin: 0; padding: 0;
+                    span {
+                      color: black;
+                      @include _rem(12px);
+                      margin: 0; padding: 0;
+                    }
+
+                    p {
+                      margin: 0; padding: 0;
+                      color: $remesh-text-gray;
+                      font-weight: 400;
+                      @include _rem(9px);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      button.hamburger {
+        z-index: 10002;
+        display: none;
+      }
+    }
+  }
+
+
+  @include mq($from: design) {
+
+    div.interior {
+
+      nav {
+        & > ul {
+          & > li {
+            margin-right: 24px;
+            div.sub-menu {
+              top: 24px;
+              padding-top: 16px;
+              min-width: 238px;
+
+              & > ul {
+                padding: 17px 21px;
+
+                &:before {
+                  left: 20px; top: -8px;
+                  border-width: 0 6.5px 9px 6.5px;
+                }
+
+                & > li {
+                  display: block;
+                  margin-bottom: 16px;
+
+                  &:last-of-type {
+                    margin-bottom: 0px;
+                  }
+
+                  a {
+                    img {
+                      width: 30px;
+                      margin-right: 10px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mq($until: nav-break) {
+    div.interior {
+      nav {
+        ul {
+          display: none;
+        }
+
+        button.hamburger {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+body.home {
+  header {
+    background-color: $remesh-blue;
+
+    svg {
+      #logo-remesh {
+        #remesh {
+          path {
+            fill: white;
+          }
+        }
+
+        #primary-dot {
+          fill: white;
+        }
+
+        #dot-1 {
+          fill: white;
+          opacity: 0.5;
+        }
+
+        #dot-2 {
+          fill: white;
+          opacity: 0.5;
+        }
+      }
+    }
+
+    nav {
+      ul {
+        li {
+          a {
+            color: white;
+
+
+
+            &:hover {
+              color: $remesh-blue-light;
+            }
+
+            &.demo {
+              color: white;
+            }
+
+          }
+        }
+      }
+
+      button.hamburger {
+        span.hamburger-box {
+          span.hamburger-inner {
+            background-color: white;
+            &:after {
+              background-color: white;
+            }
+            &:before {
+              background-color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.collapsed-nav {
+  header {
+    background-color: white;
+
+    svg {
+      #logo-remesh {
+        #remesh {
+          path {
+            fill: black;
+
+          }
+        }
+
+        #primary-dot {
+          fill: $remesh-blue;
+        }
+
+        #dot-1 {
+          fill: #000;
+          opacity: 0.145098039;
+        }
+
+        #dot-2 {
+          fill: #000;
+          opacity: 0.1450980395;
+        }
+      }
+    }
+
+
+
+
+    nav {
+      ul {
+        li {
+          a {
+            color: black;
+
+            &.demo {
+              color: white;
+            }
+          }
+        }
+      }
+
+
+      button.hamburger {
+        span.hamburger-box {
+          span.hamburger-inner {
+            background-color: black;
+            &:after {
+              background-color: black;
+            }
+            &:before {
+              background-color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.hide-nav {
+  @supports (display:grid) {
+    header {
+      transform: translateY(-100%);
+    }
+  }
+}
+
+body.has-announcement {
+  header {
+    height: 154px;
+    padding-top: 54px;
+
+    @supports (display:grid) {
+      height: 100px;
+    }
+
+    @include mq($until: tablet-wide) {
+      padding-top: 70px;
+    }
+  }
+}
+
+#announcement {
+  position: absolute;
+  z-index: 10000;
+  background-color: $remesh-yellow;
+  left: 0px; right: 0px; top: 0px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    @include _px(
+      max-width 1140px 296px
+    );
+  }
+
+  @include mq($until: tablet-wide) {
+    height: 70px;
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  @include mq($until: phablet-next) {
+    p {
+      font-size: 1rem;
+    }
+  }
+}

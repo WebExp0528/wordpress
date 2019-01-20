@@ -1,0 +1,51 @@
+@function im-breakpoints-to-json() {
+  $breakpoints-json: ();
+
+  @each $name, $value in $mq-breakpoints {
+    $breakpoint: '{"name":"#{$name}", "size":#{strip-unit($value)}}';
+    $breakpoints-json: append($breakpoints-json, $breakpoint, 'comma');
+  }
+
+  @return '[#{$breakpoints-json}]';
+}
+
+body {
+  #breakpoints {
+    display: none;
+
+    &::after {
+      content: im-breakpoints-to-json();
+      display: block;
+      height: 0;
+      overflow: hidden;
+      width: 0;
+    }
+  }
+
+  #breakpoint-debug {
+    display: none;
+  }
+}
+
+body.debug {
+  #breakpoint-debug {
+    @if not $debug-breakpoints {
+      display: none;
+    } @else {
+      display: block;
+    }
+
+    background-color: #FCF8E3;
+    border-bottom: 1px solid #FBEED5;
+    border-left: 1px solid #FBEED5;
+    z-index: 10000;
+    color: #C09853;
+    font: small-caption;
+    padding: 3px 6px;
+    pointer-events: none;
+    position: fixed;
+    left: 50%; top: 0px;
+    transform: translateX(-50%);
+  }
+}
+

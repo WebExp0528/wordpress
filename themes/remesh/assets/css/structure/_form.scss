@@ -1,0 +1,71 @@
+form.demo-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: $remesh-blue;
+  padding: px2vw(52px) px2vw(48px);
+
+  & > * {
+    margin-bottom: px2vw(10px);
+  }
+
+  .form-row {
+    display: flex;
+    input {
+      flex: 1;
+      margin-right: px2vw(10px);
+      &:last-of-type {
+        margin-right: 0px;
+      }
+    }
+  }
+
+  input:not([type=submit]), textarea {
+    font-family: $base-font-family;
+    @include _rem(14px);
+    padding: px2vw(14px) px2vw(13px);
+    appearance: none;
+    border: 0px none;
+    background-color: $remesh-blue-light;
+    border-radius: 8px;
+    color: white;
+    &::placeholder {
+      color: #C2D1D9;
+    }
+  }
+
+  textarea {
+    height: px2vw(119px);
+  }
+
+  .form-buttons {
+    margin-bottom: 0px;
+  }
+
+  @include mq($from: design) {
+    padding: 52px 48px;
+
+    & > * {
+      margin-bottom: 10px;
+    }
+
+    .form-row {
+      input {
+        flex: 1;
+        margin-right: 10px;
+        &:last-of-type {
+          margin-right: 0px;
+        }
+      }
+    }
+
+    input:not([type=submit]), textarea {
+      padding: 14px 13px;
+      appearance: none;
+    }
+
+    textarea {
+      height: 119px;
+    }
+  }
+}
